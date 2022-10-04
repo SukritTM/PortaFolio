@@ -1,7 +1,7 @@
 from . import db
 import os
 
-from flask import Flask, g
+from flask import Flask, g, render_template
 from flask.helpers import url_for
 
 
@@ -35,7 +35,7 @@ def create_app(test_config=None):
 	@auth.login_required
 	def showuser():
 		user = g.user
-		return user['name']
+		return render_template('index.html')
 
 	@app.route('/hello')
 	def hello():
