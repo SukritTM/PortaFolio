@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #F8EDE3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    font-family: 'Quicksand';
+}
+
+h1 {
+    padding-bottom: 20px;
+}
+
+span {
+    color: #4f3f55;
+    font-family: 'Nothing You Could Do';
+    font-size: 40px;
+}
+
+fieldset {
+    border: 0;
+    text-align: right;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    background: #DFD3C3;
+    padding: 0px 0px 0px 0px;
+    margin-bottom: 0;
+
+}
+
+.container{
+    border: 1px solid 7D6E83;
+    padding: 80px 150px;
+    background-color: #DFD3C3;
+}
+
+.text-tile {
+    padding: 0 20px 0 0;
+}
+
+label {
+    font-size: 12px;
+}
+
+.forgot-password {
+    font-size: 10px;
+}
+
+label input{
+    display: block;
+    text-align: right;
+
+}
+
+.foot {
+    font-size: 10px;
+}

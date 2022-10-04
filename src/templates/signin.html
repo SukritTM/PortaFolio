@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>SignIn</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='signin.css') }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Nothing You Could Do" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="image">
+            <img src="{{ url_for('static', filename='back.jpeg') }}" alt="picture">
+        </div>
+        <div class="text-tile">
+            <h1><span>PortaFolio</span></h1>
+            <P>Welcome to <span>PortaFolio</span></P>
+            <form action="" method="post">
+                <fieldset>
+                    <label for="user-name">Username or Email 
+                        <input id="user-name" name="user-name" type="text"
+                            required />
+                    </label>
+                    
+                    <label for="pw">Password 
+                        <input id="pw" name="pw" type="password" pattern="[a-z0-5]{8,}"
+                            required />
+                    </label>
+                    
+                    <label for="forgot-password">
+                        <a class="forgot-password" href="">Forgot password?</a>
+                    </label>    
+                </fieldset>
+                
+                <input type="submit" value="Sign in" />
+            </form>
+            <hr>
+            <p class="foot">New to PortaFolio? <a class="new-acc" href="{{ url_for('auth.signup') }}">Create Account</a></p>
+
+        </div>
+    </div>
+</body>
+
+</html>
