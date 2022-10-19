@@ -66,3 +66,9 @@ label input{
 .foot {
     font-size: 10px;
 }
+
+.flashed {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: small;
+    color: red;
+}
