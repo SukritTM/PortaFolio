@@ -60,7 +60,7 @@ def signin():
 		if not error:
 			session.clear()
 			session['user_id'] = user['uid']
-			return redirect(url_for('showuser'))
+			return redirect(url_for('page.home'))
 		
 		flash(error)
 	

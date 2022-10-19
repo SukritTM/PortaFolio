@@ -1,16 +1,20 @@
+import sys
 from . import db
 import os
 
-from flask import Flask, g, render_template
+from flask import Flask, g, render_template, redirect, url_for, request, flash
 from flask.helpers import url_for
+from werkzeug.utils import secure_filename
 
+import logging
 
 def create_app(test_config=None):
 	app = Flask(__name__, instance_relative_config=True)
 
 	app.config.from_mapping(
 		SECRET_KEY = 'dev',
-		DATABASE = os.path.join(app.instance_path, 'src.sqlite')
+		DATABASE = os.path.join(app.instance_path, 'src.sqlite'),
+		UPLOAD_FOLDER = os.path.join(app.instance_path, 'artwork')
 	)
 
 	if test_config is None:
@@ -25,20 +29,27 @@ def create_app(test_config=None):
 	except OSError:
 		pass
 	
+
+
 	from . import db
 	db.init_app(app)
 
 	from . import auth
 	app.register_blueprint(auth.bp)
 
-	@app.route('/showuser')
-	@auth.login_required
-	def showuser():
-		user = g.user
-		return render_template('index.html')
+	from . import page
+	app.register_blueprint(page.bp)
+
+	@app.route('/')
+	def root():
+		return redirect(url_for('auth.signin'))
+
+	
 
 	@app.route('/hello')
 	def hello():
+		print('hello')
+		sys.stdout.flush()
 		return 'hello world'
 
 	return app
